@@ -1,0 +1,18 @@
+<h1>Category is '<%= @category.value %>' </h1>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Text</th>
+    <th>Tags</th>
+  </tr>
+ 
+  <% @category.articles.each do |article| %>
+    <tr>
+      <td><%= article.title %></td>
+      <td><%= article.text %></td>
+      <td>Some Tags</td>
+    </tr>
+  <%end%>
+</table>
+<%= link_to 'Main Page', controller: 'categories' %>

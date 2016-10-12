@@ -1,0 +1,61 @@
+<h1>Our News</h1>
+<%= link_to 'New tag', new_tag_path %><br>
+<%= link_to 'New category', new_category_path %>
+<table>
+<tr>
+  <th>All articles</th>
+  <th>All categories</th>
+</tr>
+
+<tr>
+<td> 
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Category</th>
+    <th>Tags</th>
+  </tr>
+ 
+  <% @articles.each do |article| %>
+    <tr>
+      <td><%= article.title %></td>
+      <td><%= article.tags %></td>
+      <td><%=link_to 'Show', category_article_path(article.category_id,article.id)%></td>
+      <td><%= link_to 'Destroy', category_article_path(article.category_id,article.id),
+              method: :delete,
+              data: {confirm: 'Are you sure?'} %></td>
+    </tr>
+  <%end%>
+</table>
+</td>
+<td>
+<table>
+  <% @categories.each do |category| %>
+    <tr>
+      <td><%= link_to category.value, category_path(category)%></td>
+      <td><%= link_to 'Edit',category_path(category) %></td>
+      <td><%= link_to 'Edit', edit_category_path(category) %></td>
+      <td><%= link_to 'Destroy', category_path(category),
+              method: :delete,
+              data: {confirm: 'Are you sure?'} %></td>
+      <td><%= link_to 'Add_Article', category_articles_path(category) %></td>
+    </tr>
+  <%end%>
+
+    <tr>
+       <th>All tags</th>
+    </tr>
+    <% @tags.each do |tag| %>
+    <tr>
+      <td><%= link_to tag.value, tag_path(tag)%></td>
+      <td><%= link_to 'Edit', edit_tag_path(tag) %></td>
+      <td><%= link_to 'Destroy', tag_path(tag),
+              method: :delete,
+              data: {confirm: 'Are you sure?'} %></td>
+    </tr>
+  <%end%>
+
+</table>  
+</td>
+
+</table>

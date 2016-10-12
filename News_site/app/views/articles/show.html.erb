@@ -1,0 +1,17 @@
+  <p>
+    <strong>Title: <%= @article.title %></strong>
+  </p>
+ 
+  <p>
+    <strong>Category: <%= @article.category.value %></strong>
+  </p>
+
+  <p>
+    <strong>Tags: <%= @article.tags %></strong>
+  </p>
+
+  <p>
+    <strong>Text:</strong>
+    <%= @article.text%>
+  </p>
+<%= link_to 'Back', categories_path %>
